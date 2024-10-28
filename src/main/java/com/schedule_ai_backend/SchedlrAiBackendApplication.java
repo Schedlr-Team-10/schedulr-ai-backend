@@ -8,10 +8,12 @@ import com.theokanning.openai.service.OpenAiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 
 @SpringBootApplication
+@RestController
 public class SchedlrAiBackendApplication {
 
 	@Autowired
@@ -76,16 +78,13 @@ public class SchedlrAiBackendApplication {
 	}
 
 	static String generateResponse(Map.Entry<String,String> input){
-		String token = System.getenv("OPENAI_TOKEN");
-		OpenAiService service = new OpenAiService(token);
+		OpenAiService service = new OpenAiService("sk-3zvlYkAtMR1TvCuKVDHBwLdvKgHTauY99WtJ2zyHM7T3BlbkFJ0JkveS-aHxOdFyNab81839MItJaKtY-OadYDiOKdEA");
 
 		List<ChatMessage> messages = new ArrayList<>();
 		ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), "Enter a prompt here: ");
 		messages.add(systemMessage);
 
 		String message = "Make a image caption using the information provided and add gun emojis: PHOTO: " + input.getKey() + "DESCRIPTION: " + input.getValue();
-
-		System.out.print("Hi I am your AI assistant chatbot. Ask me a question: ");
 		ChatMessage firstMsg = new ChatMessage(ChatMessageRole.USER.value(), message);
 		messages.add(firstMsg);
 
