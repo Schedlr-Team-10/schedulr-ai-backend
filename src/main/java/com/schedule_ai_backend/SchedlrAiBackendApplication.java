@@ -32,6 +32,7 @@ public class SchedlrAiBackendApplication {
 
 			Scanner sc = new Scanner(System.in);
 			int num = sc.nextInt();
+			sc.nextLine();
 
 			Map.Entry<String, String> requested = getPhotoAndDescription(num);
 
@@ -41,12 +42,15 @@ public class SchedlrAiBackendApplication {
 
 			addCaption(num,response);
 
-			System.out.println("Another id you would like to check?");
-
+			System.out.println("Another id you would like to check?(y,n)");
+			sc.reset();
 			String exit = sc.nextLine();
 
-			if(exit.equalsIgnoreCase("exit")) {
+			if(exit.equalsIgnoreCase("n")) {
 				break;
+			}
+			else if(exit.equalsIgnoreCase("y")){
+				throw new Exception("This is not a supported option");
 			}
 		}
 
@@ -112,5 +116,7 @@ public class SchedlrAiBackendApplication {
 		}
 
 		thispost.setCaption(caption);
+
+		postRepository.save(thispost);
 	}
 }
