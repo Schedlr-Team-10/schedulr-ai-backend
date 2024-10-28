@@ -1,4 +1,4 @@
-package come.schedule_ai_backend;
+package com.schedule_ai_backend;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
