@@ -78,13 +78,13 @@ public class SchedlrAiBackendApplication {
 	}
 
 	static String generateResponse(Map.Entry<String,String> input){
-		OpenAiService service = new OpenAiService("sk-3zvlYkAtMR1TvCuKVDHBwLdvKgHTauY99WtJ2zyHM7T3BlbkFJ0JkveS-aHxOdFyNab81839MItJaKtY-OadYDiOKdEA");
+		OpenAiService service = new OpenAiService("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");
 
 		List<ChatMessage> messages = new ArrayList<>();
 		ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), "Enter a prompt here: ");
 		messages.add(systemMessage);
 
-		String message = "Make a image caption using the information provided and add gun emojis: PHOTO: " + input.getKey() + "DESCRIPTION: " + input.getValue();
+		String message = "Make a image caption using the information provided and add fun emojis: PHOTO: " + input.getKey() + "DESCRIPTION: " + input.getValue();
 		ChatMessage firstMsg = new ChatMessage(ChatMessageRole.USER.value(), message);
 		messages.add(firstMsg);
 
