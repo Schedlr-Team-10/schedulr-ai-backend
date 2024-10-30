@@ -9,20 +9,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class GPTService {
-
-
-    static String generateResponse(Map.Entry<String,String> input){
-        OpenAiService service = new OpenAiService("sk-3zvlYkAtMR1TvCuKVDHBwLdvKgHTauY99WtJ2zyHM7T3BlbkFJ0JkveS-aHxOdFyNab81839MItJaKtY-OadYDiOKdEA");
+    static String generateResponse(String input){
+        OpenAiService service = new OpenAiService("");
 
         List<ChatMessage> messages = new ArrayList<>();
         ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), "Enter a prompt here: ");
         messages.add(systemMessage);
 
-        String message = "Make a image caption using the information provided and add gun emojis: PHOTO: " + input.getKey() + "DESCRIPTION: " + input.getValue();
+        String message = "Generate z description for a post based off these keywords: " + input;
         ChatMessage firstMsg = new ChatMessage(ChatMessageRole.USER.value(), message);
         messages.add(firstMsg);
 
