@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.schedlr</groupId>
-	<artifactId>Schedlr-post-management</artifactId>
+	<artifactId>Schedlr-AI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Schedlr-post-management</name>
 	<description>Demo project for Spring Boot</description>
